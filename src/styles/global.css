@@ -1,0 +1,58 @@
+@font-face{font-family:'EurostileCyber';src:local('Eurostile'), local('Eurostile Extended');}
+:root{--bg:#0b0f12;--panel:#0f141a;--text:#e5f1ff;--muted:#8aa0b3;--accent:#00ffe1;--accent2:#ffd23f;--danger:#ff3b3b;}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;background:linear-gradient(180deg,#0b0f12,#091016);color:var(--text);font:15px/1.5 system-ui,Segoe UI,Roboto,Helvetica,Arial}
+.app-root{display:flex;flex-direction:column;min-height:100%}
+.app-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #15202b;background:rgba(15,20,26,.8);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+.brand{font-weight:700;letter-spacing:.5px}
+.brand .accent{color:var(--accent)}
+.header-actions{display:flex;gap:8px;align-items:center}
+.btn{background:var(--accent);color:#091016;border:none;border-radius:8px;padding:8px 12px;font-weight:700;cursor:pointer;transition:transform .08s}
+.btn:hover{transform:translateY(-1px)}
+.btn.subtle{background:#1a2632;color:var(--text)}
+.btn.link{background:transparent;color:var(--accent);text-decoration:underline}
+.btn.close{background:#1a2632;color:#fff;width:32px;height:32px;border-radius:50%}
+.app-main{display:grid;grid-template-columns:1fr 360px;gap:12px;padding:16px;flex:1}
+.cards{display:flex;align-items:center;justify-content:center;position:relative}
+.sidebar{border-left:1px solid #15202b;padding-left:12px}
+.status,.error{padding:24px 16px;color:var(--muted)}
+.error{color:var(--danger)}
+
+.swipe-container{width:720px;max-width:100%;height:70vh;position:relative}
+.swipe{position:absolute;width:100%;height:100%}
+.mod-card{display:flex;flex-direction:column;background:var(--panel);border:1px solid #1d2a36;border-radius:14px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.35);height:100%}
+.mod-card .image{flex:1;background-size:cover;background-position:center}
+.mod-card .content{padding:12px}
+.mod-card .title-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mod-card .title{margin:0;font-size:20px}
+.mod-card .meta{display:flex;gap:8px;color:var(--muted);font-size:12px;margin:6px 0 8px}
+.mod-card .desc{margin:0 0 12px;color:#d0e3f1}
+.mod-card .actions{display:flex;align-items:center;justify-content:space-between}
+.mod-card .updated{color:var(--muted);font-size:12px}
+
+.compat{position:relative}
+.compat .bar{min-width:64px;padding:4px 8px;border-radius:8px;color:#000;font-weight:800;text-align:center}
+.compat .tooltip{position:absolute;right:0;top:calc(100% + 8px);background:#0e151c;border:1px solid #203040;padding:10px 12px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.45);width:280px;z-index:5}
+.compat .tooltip .label{font-weight:700;margin-bottom:6px;color:#9bd9ff}
+.compat .tooltip ul{margin:0;padding-left:16px}
+.compat .tooltip li{margin:2px 0;color:#cfe7f7}
+.compat .tooltip .flags{color:#ffc24b}
+
+.accepted .header{display:flex;align-items:center;justify-content:space-between}
+.accepted ul{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.accepted li{display:flex;align-items:center;justify-content:space-between;background:#0f1822;border:1px solid #1c2b3a;border-radius:10px;padding:8px}
+.accepted .name{font-weight:700}
+.accepted .meta{color:var(--muted);font-size:12px}
+.accepted .empty{color:var(--muted);padding:12px}
+
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:20}
+.modal-content{width:520px;max-width:92vw;background:#0e151c;border:1px solid #1e2c3a;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.55)}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid #1e2c3a}
+.form{display:flex;flex-direction:column;gap:10px;padding:12px 14px}
+label{display:flex;flex-direction:column;gap:6px;color:#b7d0e4}
+input[type='password'],input[type='text'],input[type='date']{background:#0b1218;border:1px solid #1b2a38;border-radius:8px;padding:8px;color:#e5f1ff}
+input[type='checkbox']{margin-left:auto}
+.modal-actions{display:flex;justify-content:flex-end;padding:12px 14px;border-top:1px solid #1e2c3a}
+
+.app-footer{text-align:center;color:#6b8297;padding:10px;border-top:1px solid #15202b}
