@@ -32,7 +32,7 @@ bun run build && bun run package
 This builds the renderer to `dist/` and packages the Electron app (using electron-builder).
 
 ## Nexus Mods API Key
-- You must have a Nexus Mods API key (Premium).
+- You need a Nexus Mods API key (Premium membership recommended for higher rate limits).
 - Open Settings in the app and paste your API key.
 - Key is stored locally via `electron-store`.
 
