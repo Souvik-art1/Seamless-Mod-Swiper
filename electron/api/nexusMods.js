@@ -1,5 +1,5 @@
 import axios from 'axios';
-import cheerio from 'cheerio';
+import { load as cheerioLoad } from 'cheerio';
 
 const BASE_URL = 'https://api.nexusmods.com/v1';
 const GAME_DOMAIN = 'cyberpunk2077';
@@ -42,7 +42,7 @@ export class NexusAPI {
     const res = await axios.get(url, {
       headers: { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120 Safari/537.36' }
     });
-    const $ = cheerio.load(res.data);
+    const $ = cheerioLoad(res.data);
     const comments = [];
     $(".comment-content, .comment-body, .comment-text, .text")
       .each((_i, el) => {
