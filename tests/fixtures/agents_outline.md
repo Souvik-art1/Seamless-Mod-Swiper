@@ -1,4 +1,3 @@
-
 # Seamless-Mod-Swiper - Development Outline
 
 ## Scope & Guardrails
