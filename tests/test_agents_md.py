@@ -13,21 +13,12 @@
 +import pytest
 +
 +# Minimal content blocks to satisfy marker checks used by _find_spec_path
-+_CANDIDATE_ONLY_SPEC = (
-+    "rngAlgoVersion\n"
-+    "xoshiro256**\n"
-+)
-+_FULL_MARKERS_SPEC = (
-+    "rngAlgoVersion\n"
-+    "xoshiro256**\n"
-+    "FlushFileBuffers\n"
-+    "ReplaceFile\n"
-+    "Redactor Utility\n"
-+)
-+_HEADER = "# Seamless-Mod-Swiper - Development Outline"
-+_FULL_WITH_HEADER_SPEC = _HEADER + "\n" + _FULL_MARKERS_SPEC
-+
-+def _amk_write(tmp_path: pathlib.Path, rel: str, content: str) -> pathlib.Path:
+from seamless_mod_swiper.agents_md import CANDIDATE_MARKERS, FULL_MARKERS, HEADER_TEXT
+_CANDIDATE_ONLY_SPEC = "\n".join(CANDIDATE_MARKERS)
+_FULL_MARKERS_SPEC = "\n".join(FULL_MARKERS)
+_HEADER = HEADER_TEXT
+_FULL_WITH_HEADER_SPEC = _HEADER + "\n" + _FULL_MARKERS_SPEC
++def _write(tmp_path: pathlib.Path, rel: str, content: str) -> pathlib.Path:
 +    p = tmp_path / rel
 +    p.parent.mkdir(parents=True, exist_ok=True)
 +    p.write_text(content, encoding="utf-8")
@@ -88,16 +79,16 @@
 +    unreadable = _amk_write(tmp_path, "README.md", "contents do not matter")
 +    target = _amk_write(tmp_path, "docs/AGENTS.md", _CANDIDATE_ONLY_SPEC)
 +
-+    orig_read_text = pathlib.Path.read_text
-+    def fake_read_text(self, encoding="utf-8", errors="ignore"):
-+        # Only fail for the specific README.md in the temp dir
-+        try:
-+            if self.resolve() == unreadable.resolve():
-+                raise OSError("simulated read failure")
-+        except Exception:
-+            # If resolve() fails for any reason, fall back to normal behavior
-+            pass
-+        return orig_read_text(self, encoding=encoding, errors=errors)
++orig_read_text = pathlib.Path.read_text
++def fake_read_text(self, *args, **kwargs):
++    # Only fail for the specific README.md in the temp dir
++    try:
++        if self.resolve() == unreadable.resolve():
++            raise OSError("simulated read failure")
++    except Exception:
++        # If resolve() fails for any reason, fall back to normal behavior
++        pass
++    return orig_read_text(self, *args, **kwargs)
 +
 +    monkeypatch.setattr(pathlib.Path, "read_text", fake_read_text)
 +    monkeypatch.delenv(SPEC_ENV_VAR, raising=False)
