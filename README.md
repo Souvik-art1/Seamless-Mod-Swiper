@@ -7,10 +7,11 @@ And two, there's no filters for patch specific uploads, making you have to do th
 
 **What This Application Does:**
 
-There's a good chance you've used dating apps. This is essentially that but for mods. You see a mod, and you swipe.
-  -Mods you swipe right are "approved"
-  -Mods you swipe left are "discarded"
-  -Mods you approve of are listed on a sidebar for easy perusal, and can be exported to a text document.
+There's a good chance you've used dating apps. This is essentially that but for mods. You see a mod, and you swipe.  
+
+  -Mods you swipe right are "approved"  
+  -Mods you swipe left are "discarded"  
+  -Mods you approve of are listed on a sidebar for easy perusal, and can be exported to a text document.  
 
 The purpose of this tool is to help streamline the process of "choosing" mods. Basically get a clear idea of what you'll be working with.
 Mod "card" order is random every session, and your list of approved mods persists between sessions.
@@ -22,9 +23,9 @@ This tool does that for you, it assigns a "Confidence" rating between 0-100 indi
 
 **What This Application Does NOT Do:**
 
--Help you install mods
--Help you figure out mod cross-compatibility
--Identify mod prerequisites
+-Help you install mods  
+-Help you figure out mod cross-compatibility  
+-Identify mod prerequisites  
 
 By design, these are left up to the user.
 
