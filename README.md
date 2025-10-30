@@ -29,5 +29,8 @@ This tool does that for you, it assigns a "Confidence" rating between 0-100 indi
 
 By design, these are left up to the user.
 
+Disclaimers:
+
 Currently, this tool supports only Cyberpunk 2077. Other games are planned to be added over time, with priority given to titles with more demand.
+I know nothing about programming, and as such the code has been written entirely by AI (at least for the time being). However, I'm confident about its functionality on top of it being a simple tool. No hard feelings if this is a dealbreaker, I suggest moving on.
 Expect this tool to be frequently refined and updated.
