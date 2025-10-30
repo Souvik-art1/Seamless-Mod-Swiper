@@ -4,6 +4,7 @@
 ---
 
 ## Scope and Guardrails
+
 - Use only the **official Nexus Mods API**. No scraping outside API terms.
 - Respect Nexus Mods ToS, rate limits, and attribution rules.
 - No automation that posts comments, votes, or modifies ratings.
@@ -13,6 +14,7 @@
 ---
 
 ## Stage 1 — Core Shell and Deck
+
 **Goal:** minimal, usable app with local mock data.
 
 - **Stack:** Babylon.js front end, Tauri shell.
@@ -26,6 +28,7 @@
 ---
 
 ## Stage 2 — Nexus Mods Integration and Access
+
 **Goal:** live data from the API with a simple access model.
 
 - **API key entry:** user pastes the key **every session** at startup.  
@@ -41,6 +44,7 @@
 ---
 
 ## Stage 3 — Filtering and Locale Handling
+
 **Goal:** control which items appear in the deck.
 
 - **Adult toggle:** ON by default, user can turn OFF.
@@ -53,6 +57,7 @@
 ---
 
 ## Stage 4 — Scoring Heuristic (Game: Cyberpunk 2077, Patch: **2.3.2**)
+
 **Goal:** show a confidence score for compatibility.
 
 - **Base score:** start at **50**.
@@ -70,11 +75,13 @@
 ---
 
 ## Stage 5 — Persistence, Files, and Layout on Disk
+
 **Goal:** keep the file footprint simple and local.
 
 - **Approved mods JSON:** always create this file, even if empty.  
   - **Location:** same folder as the executable.  
   - **Structure:**  
+
     ```json
     {
       "header": {
@@ -94,6 +101,7 @@
       ]
     }
     ```
+
   - Only **name** and **url** are stored for each approved mod.
 - **Save behavior:** write JSON to `{appFolder}/approved-mods-{game}.json`.
 - **Integrity and backup:**  
@@ -104,6 +112,7 @@
 ---
 
 ## Stage 6 — Caching and Offline Mode
+
 **Goal:** reduce network use and support viewing when offline.
 
 - **What is cached:**  
@@ -117,6 +126,7 @@
 ---
 
 ## Stage 7 — UX and Accessibility
+
 **Goal:** make the app comfortable and inclusive.
 
 - **Focus management:**  
@@ -132,6 +142,7 @@
 ---
 
 ## Stage 8 — Optional Memory to Reduce Repeats Across Sessions
+
 **Goal:** see fresh items across sessions without storing a large history.
 
 - **LRU memory (optional):** keep a small list of the **most recently shown** `(modId, fileId)` pairs.  
@@ -142,6 +153,7 @@
 ---
 
 ## Stage 9 — Diagnostics and Exports
+
 **Goal:** make troubleshooting explicit and user-driven.
 
 - **Error logs:** kept next to the executable.  
@@ -152,6 +164,7 @@
 ---
 
 ## Stage 10 — Packaging and Platforms
+
 **Goal:** ship a portable build that is simple to run.
 
 - **Package:** Tauri build distributed as a **zip**. The app runs from any writable folder.  
@@ -161,6 +174,7 @@
 ---
 
 ## Stage 11 — Future Extensions (kept in mind during base design)
+
 **Goal:** acknowledge room for growth without defining it now.
 
 - **Visual and UI enhancements:** there is scope for richer 3D effects, animations, and game-themed skins. Build the base with this in mind so themes can be added without rewriting core UI.  
@@ -170,8 +184,10 @@
 ---
 
 ## Legal and Compliance Summary
+
 - Use official Nexus Mods endpoints only.  
 - Respect rate limits and terms.  
 - Provide attribution in a single **About** panel, not per-mod overlays.  
 - No telemetry.  
 - No key storage. The API key is pasted each session and never persisted.
+
