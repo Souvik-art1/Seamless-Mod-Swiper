@@ -21,7 +21,7 @@ Mod "card" order is random every session, and your list of approved mods persist
 **How The Patch Specific Filter Works:**
 
 Usually figuring out whether a mod supports a current iteration of a game involves having to go through the description, changelogs, comments, or a mix of all three.
-This tool does that for you, it assigns a "Confidence" rating between 0-100 indicating a mod's compatibility with the current patch and provides reasoning for said score with a tooltip upon hover.
+This tool does that for you, it assigns a "Confidence" rating between 0-100 indicating a mod's compatibility by analyzing changelog, description, tags, author comments, and dependencies. It provides reasoning for said score with a tooltip upon hover.
 
 **What This Application Does NOT Do:**
 
@@ -33,8 +33,40 @@ By design, these are left up to the user.
 
 **Disclaimer:**
 
-Currently, this tool supports only Cyberpunk 2077. Other games are planned to be added over time, with priority given to titles based on demand.  
+This is a browser-based application that requires a Nexus Mods API key for functionality. Currently supports Cyberpunk 2077, with other games planned based on demand.
 
 I know nothing about programming, and as such the code has been written entirely by AI (at least for the time being). However, I'm confident about its functionality on top of it being a simple tool. No hard feelings if this is a dealbreaker, I suggest moving on.  
 
 Expect this tool to be frequently refined and updated.
+
+**Tech Stack**
+
+- React + TypeScript + Three.js
+- Build tooling: Vite
+
+**Getting Started**
+
+  -Obtain a Nexus Mods API key from your Nexus Mods account
+  -Open the application in a modern browser (Chrome, Firefox, Safari)
+  -Enter your API key when prompted (required for each session)
+  -Start swiping
+
+**Deployment**
+
+  -Browser (current): Single-page application deployable to any static hosting service (GitHub Pages, Netlify, Vercel, etc.)
+  -Desktop (later): Tauri integration planned for filesystem-backed persistence
+
+**Data & Persistence**
+
+  -Approved mods and settings persist between sessions
+  -Browser: Stored in IndexedDB; Export/Import to JSON available
+  -Desktop (later): Files stored next to executable with integrity checks
+  -No telemetry. API key never stored or persisted.
+
+**License**
+
+Idk about licenses and stuff go nuts its open source
+
+**Contributing**
+
+Contributions welcome! Please open issues for bugs or feature requests.
